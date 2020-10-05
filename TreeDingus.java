@@ -7,7 +7,6 @@
  */
 
 import java.awt.Graphics;
-import java.awt.Color;
 
 class TreeDingus extends Dingus {
     private int crownRadius;

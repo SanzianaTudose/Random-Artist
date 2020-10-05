@@ -11,12 +11,9 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
-import jdk.nashorn.api.tree.Tree;
-
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
-import java.lang.reflect.Constructor;
 
 public class Painting extends JPanel implements ActionListener {
 
@@ -77,6 +74,7 @@ public class Painting extends JPanel implements ActionListener {
         // create random shapes
         setBackground(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         numShapes = 10 + random.nextInt(20);
+
         while (numShapes > 0) {
             int randomShape = random.nextInt(4);
             
