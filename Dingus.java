@@ -35,7 +35,7 @@ abstract class Dingus {
         y = random.nextInt(maxY);
         
         // initialize to a random color
-        color = new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255), random.nextInt(255));
+        color = new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
 
     abstract void draw(Graphics g);
