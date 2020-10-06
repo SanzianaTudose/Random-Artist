@@ -34,7 +34,7 @@ public class CloudDingus extends Dingus {
             int iterRed = iterationColor(color.getRed(), iteration);
             int iterGreen = iterationColor(color.getGreen(), iteration);
             int iterBlue = iterationColor(color.getBlue(), iteration);
-            Color iterColor = new Color(iterRed, iterGreen, iterBlue);
+            Color iterColor = new Color(iterRed, iterGreen, iterBlue, color.getAlpha());
             g.setColor(iterColor);
 
             g.fillArc(x, y, radius, radius, 0, 360);
