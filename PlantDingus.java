@@ -1,8 +1,6 @@
-
 /**
- * CircleDingus -- part of HA RandomArtist
- * example of a very simple Dingus
- * @author huub
+ * PlantDingus -- part of HA RandomArtist
+ * Complex plant shape
  */
 
 import java.awt.Graphics;

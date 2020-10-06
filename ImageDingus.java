@@ -1,8 +1,6 @@
-
 /**
- * CircleDingus -- part of HA RandomArtist
- * example of a very simple Dingus
- * @author huub
+ * ImageDingus - part of HA RandomArtist
+ * Draws an image using elipses based on random pixels 
  */
 
 import java.awt.Color;

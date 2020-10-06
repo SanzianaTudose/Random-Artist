@@ -3,6 +3,12 @@
  *
  * @author kees
  * @author huub
+ * 
+ * Homework Assignment 2ip90 
+ * @name(s) Sanziana Tudose, Tom Lodder
+ * @id(s)     1561057, 1587986
+ * @group     115
+ * @date      06.10.2020
  */
 
 import java.awt.*;

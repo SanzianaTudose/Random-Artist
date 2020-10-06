@@ -1,10 +1,7 @@
 /**
  * BeautifulDingus - part of HA RandomArtist
- * concentric circles with 
+ * Concentric circles with 
  * smaller random circles on their outline
- * 
- * @author Sanziana Tudose 
- * studentid: 1561057
  */
 
 import java.awt.Graphics;

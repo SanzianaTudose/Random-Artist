@@ -1,3 +1,7 @@
+/**
+ * BeautifulDingus - part of HA RandomArtist
+ * Koch snowflake shape
+ */
 
 import java.awt.Graphics;
 import java.util.ArrayList;
