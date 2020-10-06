@@ -50,6 +50,8 @@ public class Painting extends JPanel implements ActionListener {
     protected void paintComponent(final Graphics g) { // draw all your shapes
         super.paintComponent(g); // clears the panel
         // draw all shapes
+        //shapes = new ArrayList<Dingus>();
+        //shapes.add(new PlantDingus(getWidth(), getHeight()));
         for (final Dingus shape : shapes) {
             shape.draw(g);
         }
@@ -78,7 +80,7 @@ public class Painting extends JPanel implements ActionListener {
         setBackground(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         numShapes = 10 + random.nextInt(20);
         while (numShapes > 0) {
-            int randomShape = random.nextInt(4);
+            int randomShape = random.nextInt(9);
             
             switch (randomShape) {
                 case 0:
@@ -92,6 +94,21 @@ public class Painting extends JPanel implements ActionListener {
                     break;
                 case 3:
                     shapes.add(new CloudDingus(getWidth(), getHeight()));
+                    break;
+                case 4:
+                    shapes.add(new SnowflakeDingus(getWidth(), getHeight()));
+                    break;
+                case 5:
+                    shapes.add(new SierpinskiDingus(getWidth(), getHeight()));
+                    break;
+                case 6:
+                    shapes.add(new BroccoliDingus(getWidth(), getHeight()));
+                    break;
+                case 7:
+                    shapes.add(new PlantDingus(getWidth(), getHeight()));
+                    break;
+                case 8:
+                    shapes.add(new ImageDingus(getWidth(), getHeight()));
                     break;
             }
             
