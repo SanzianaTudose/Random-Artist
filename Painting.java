@@ -73,23 +73,35 @@ public class Painting extends JPanel implements ActionListener {
 
         // create random shapes
         setBackground(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
-        numShapes = 10 + random.nextInt(20);
+        numShapes = 20 + random.nextInt(20);
 
         while (numShapes > 0) {
-            int randomShape = random.nextInt(4);
+            int randomShape = random.nextInt(8);
             
             switch (randomShape) {
                 case 0:
-                    shapes.add(new CircleDingus(getWidth(), getHeight()));
+                    shapes.add(new BroccoliDingus(getWidth(), getHeight()));
                     break;
                 case 1:
-                    shapes.add(new TreeDingus(getWidth(), getHeight()));
+                    shapes.add(new PlantDingus(getWidth(), getHeight()));
                     break;
                 case 2:
                     shapes.add(new BeautifulDingus(getWidth(), getHeight()));
                     break;
                 case 3:
                     shapes.add(new CloudDingus(getWidth(), getHeight()));
+                    break;
+                case 4:
+                    shapes.add(new SierpinskiDingus(getWidth(), getHeight()));
+                    break;
+                case 5:
+                    shapes.add(new SnowflakeDingus(getWidth(), getHeight()));
+                    break;
+                case 6:
+                    shapes.add(new RectanglesDingus(getWidth(), getHeight()));
+                    break;
+                case 7:
+                    shapes.add(new ImageDingus(getWidth(), getHeight()));
                     break;
             }
             
