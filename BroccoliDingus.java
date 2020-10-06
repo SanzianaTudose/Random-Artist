@@ -1,3 +1,7 @@
+/**
+ * BroccoliDingus - part of HA RandomArtist
+ * Fractal tree shape
+ */
 
 import java.awt.Graphics;
 

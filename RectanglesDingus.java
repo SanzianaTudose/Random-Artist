@@ -1,6 +1,6 @@
 /*
-* Rectangles in a gradient 
-*
+* RectanglesDingus - part of HA RandomArtist
+* Random coloured rectangles
 */
 
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import java.awt.Color;
 
 public class RectanglesDingus extends Dingus{
     protected boolean filled; //true: filled, false: outline
-    protected int numRect;
+    protected int numRect; // number of rectangles to be drawn 
     protected int width, height;
 
     public RectanglesDingus(int maxX, int maxY) {
@@ -29,7 +29,7 @@ public class RectanglesDingus extends Dingus{
         for (int i = 0; i < numRect; i++) {
             int curStep = 100 * i / numRect;
             
-            // TODO: make gradient?
+            // Randomize color
             g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
             if (filled) {
                 g.fillRect(x + curStep, y + curStep, width - curStep, height - curStep);

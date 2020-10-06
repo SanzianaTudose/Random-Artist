@@ -1,3 +1,7 @@
+/**
+ * SierpinskiDingus - part of HA RandomArtist
+ * Sierpinski Triangle shape
+ */
 
 import java.awt.Graphics;
 import java.awt.Color;
