@@ -13,29 +13,25 @@ import javax.imageio.ImageIO;
 
 class ImageDingus extends Dingus {
 
+    // Array of the image's filenames
     final static String[] files = {"dog.jpeg", "pippi.png", "sanziana.jpg",};
-    final static int[][] matrices = {
-        {-1, -1},
-        {-1, 0},
-        {-1, 1},
-        {0, -1},
-        {0, 0},
-        {0, 1},
-        {1, -1},
-        {1, 0},
-        {1, 1}
-    };
 
+    // Variables used to load the image
     protected BufferedImage image;
     protected File imageFile;
     protected boolean loaded;
 
+    // Properties of the loaded image
     protected int width;
     protected int height;
 
+    // Scaling for images of different dimensions
     protected double size;
     protected double scaleX;
     protected double scaleY;
+
+    // Pixel class of the instance color
+    protected Pixel colorPixel;
 
     public ImageDingus(int maxX, int maxY) {
         // intialize randomly the Dingus properties, i.e., position and color
@@ -59,6 +55,9 @@ class ImageDingus extends Dingus {
             size = random.nextInt(maxX/2);
             scaleX = Math.max(0.25, size / width);
             scaleY = Math.max(0.25, size / height);
+
+            // Convert the color to a Pixel class
+            colorPixel = new Pixel(color.getRGB());
         } catch(IOException e) {
             System.out.println(e);
         }
@@ -70,20 +69,22 @@ class ImageDingus extends Dingus {
         Pixel totalColor = new Pixel(0);
 
         // For every pixel in the kernel
-        for(int[] matrix : matrices) {
-            int tempX = centerX + matrix[0];
-            int tempY = centerY + matrix[1];
+        for(int i = -1; i < 2; i++) {
+            for(int j = -1; j < 2; j++) {
+                int tempX = centerX + i;
+                int tempY = centerY + j;
 
-            // If it's in bounds, add the pixel's color values to the total
-            if(tempX >= 0 && tempX < width && tempY >= 0 && tempY < height) {
-                Pixel tempPixel = new Pixel(image.getRGB(tempX, tempY));
-                totalColor.addPixel(tempPixel);
-                colors++;
+                // If it's in bounds, add the pixel's color values to the total
+                if(tempX >= 0 && tempX < width && tempY >= 0 && tempY < height) {
+                    Pixel tempPixel = new Pixel(image.getRGB(tempX, tempY));
+                    totalColor.addPixel(tempPixel);
+                    colors++;
+                }
             }
         }
 
         // Divide total by the number of neighbours
-        totalColor.divideChannels(1f / colors);
+        totalColor.multiplyChannels(1f / colors);
         return totalColor;
     }
 
@@ -101,8 +102,12 @@ class ImageDingus extends Dingus {
             int offsetX = x + ((int) (scaleX * (randX - pixelSize/2f)));
             int offsetY = y + ((int) (scaleY * (randY - pixelSize/2f)));
 
-            // Calculate the average color value and draw an ellipse at the random position
+            // Calculate the average color value and factor in the instance color
             Pixel pixel = kernelAverage(randX, randY);
+            pixel.addPixel(colorPixel);
+            pixel.multiplyChannels(0.5);
+
+            // Draw an ellipse at the random position with the new color
             g.setColor(new Color(pixel.r, pixel.g, pixel.b, pixel.a));
             g.fillArc(offsetX, offsetY, (int) (scaleX * pixelSize), (int) (scaleY * pixelSize), 0, 360);
         }
@@ -131,7 +136,7 @@ class Pixel {
         b += pixel.b;
     }
 
-    void divideChannels(double amount) {
+    void multiplyChannels(double amount) {
         a = (int) (amount * a);
         r = (int) (amount * r);
         g = (int) (amount * g);

@@ -1,7 +1,7 @@
 
 /**
- * CircleDingus -- part of HA RandomArtist
- * example of a very simple Dingus
+ * PlantDingus -- part of HA RandomArtist
+ * example of a PlantDingus
  * @author huub
  */
 
